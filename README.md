@@ -2,9 +2,10 @@
 
 > Grunt plugin for Verb, the markdown documentation generator with zero-configuration required.
 
-* Get [verb-cli](https://github.com/assemble/verb) to use Verb from the command line
+* Install [Verb](https://github.com/assemble/verb) locally in each project.
+* Get [verb-cli](https://github.com/assemble/verb-cli) to use Verb from the command line
 * Get [generator-verb](https://github.com/assemble/generator-verb) to add documentation templates, or initialize docs for new projects
-* Get [gulp-verb](https://github.com/assemble/gulp-verb) for your gulp build-chains
+* Get [gulp-verb](https://github.com/assemble/gulp-verb) to automate Verb in your gulp tool-chains
 
 ## Install with [npm](npmjs.org)
 ```bash
