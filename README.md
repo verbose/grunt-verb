@@ -2,7 +2,7 @@
 
 > Grunt plugin for Verb, the markdown documentation generator with zero-configuration required.
 
-Please [report any bugs or feature requests](https://github.com/assemble/grunt-verb/issues/new), thanks!
+Also get [verb-cli](https://github.com/assemble/verb-cli), the command line tool for [Verb](https://github.com/assemble/verb).
 
 ## Install with [npm](npmjs.org)
 ```bash
@@ -10,6 +10,8 @@ npm install grunt-verb --save-dev
 ```
 
 You can also use the [Verb generator](https://github.com/assemble/generator-verb) to kickstart the documentation for any project.
+
+Please [report any bugs or feature requests](https://github.com/jonschlinkert/grunt-verb/issues/new), thanks!
 
 ## Examples
 You can build any kind of markdown document with Verb, but **building a readme is an easy way to get started**.
@@ -38,7 +40,7 @@ Here is an example template for a basic readme:
 ```
 
 ## Contributing
-Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/grunt-verb/issues). If you find this project useful please consider "starring" it to show your support!
+Find a bug? Have a feature request? Please [create an Issue](https://github.com/jonschlinkert/grunt-verb/issues). If you find this project useful please consider "starring" it to show your support!
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
 

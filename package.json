@@ -1,23 +1,23 @@
 {
   "name": "grunt-verb",
   "description": "Grunt plugin for Verb, the markdown documentation generator with zero-configuration required.",
-  "version": "0.0.2",
-  "homepage": "https://github.com/assemble/grunt-verb",
+  "version": "0.0.4",
+  "homepage": "https://github.com/jonschlinkert/grunt-verb",
   "author": {
     "name": "Jon Schlinkert",
     "url": "https://github.com/jonschlinkert"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/assemble/grunt-verb.git"
+    "url": "https://github.com/jonschlinkert/grunt-verb.git"
   },
   "bugs": {
-    "url": "https://github.com/assemble/grunt-verb/issues"
+    "url": "https://github.com/jonschlinkert/grunt-verb/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/assemble/grunt-verb/blob/master/LICENSE-MIT"
+      "url": "https://github.com/jonschlinkert/grunt-verb/blob/master/LICENSE-MIT"
     }
   ],
   "main": "tasks/verb.js",
