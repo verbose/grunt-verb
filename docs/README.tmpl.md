@@ -1,11 +1,10 @@
----
-user: jonschlinkert
----
 # {%= name %} {%= badge('fury') %}
 
 > {%= description %}
 
-Also get [verb-cli](https://github.com/assemble/verb-cli), the command line tool for [Verb](https://github.com/assemble/verb).
+* Get [verb-cli](https://github.com/assemble/verb) to use Verb from the command line
+* Get [generator-verb](https://github.com/assemble/generator-verb) to add documentation templates, or initialize docs for new projects
+* Get [grunt-verb](https://github.com/assemble/grunt-verb) for your Grunt build-chains
 
 ## Install with [npm](npmjs.org)
 {%= docs("install") %}

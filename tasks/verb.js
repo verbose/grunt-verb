@@ -26,7 +26,6 @@ module.exports = function(grunt) {
       var files = grunt.file.expand({nonull: true}, fp.src);
 
       var src = files.map(function(filepath) {
-
         // Warn if a source file/pattern was invalid.
         if (!grunt.file.exists(filepath)) {
           grunt.log.error('Source file "' + filepath + '" not found.');
