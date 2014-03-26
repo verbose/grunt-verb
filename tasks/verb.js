@@ -10,12 +10,12 @@
 
 var path = require('path');
 var verb = require('verb');
+var pkg = require('../package');
 
 verb.runner = {
-  name: 'grunt-verb',
-  url: 'https://github.com/jonschlinkert/grunt-verb'
+  name: pkg.name,
+  url: pkg.homepage
 };
-
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('verb', 'Grunt plugin for Verb, a markdown documentation generator with zero-configuration required.', function() {
