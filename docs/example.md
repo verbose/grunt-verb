@@ -3,22 +3,22 @@ You can build any kind of markdown document with Verb, but **building a readme i
 Here is an example template for a basic readme:
 
 ```markdown
-# [%= name %]
+# {%%= name %}
 
-> [%= description %]
+> {%%= description %}
 
-[%= toc() %]
+{%%= toc() %}
 
 ## Overview
-[%= docs("overview") %]
+{%%= docs("overview") %}
 
 ## Options
-[%= docs("options") %]
+{%%= docs("options") %}
 
 ## Examples
-[%= docs("examples") %]
+{%%= docs("examples") %}
 
 ## License and Copyright
-[%= copyright() %]
-[%= license() %]
+{%%= copyright() %}
+{%%= license() %}
 ```
