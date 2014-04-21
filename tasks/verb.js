@@ -10,6 +10,7 @@
 
 var path = require('path');
 var verb = require('verb');
+var _ = require('lodash');
 var pkg = require('../package');
 
 verb.runner = {
@@ -20,7 +21,16 @@ verb.runner = {
 module.exports = function(grunt) {
   grunt.registerMultiTask('verb', 'Grunt plugin for Verb, a markdown documentation generator with zero-configuration required.', function() {
 
-    var options = this.options({sep: '\n'});
+    var options = this.options({
+      sep: '\n',
+      ext: '.md',
+      prefixBase: true,
+      cwd: process.cwd(),
+      destBase: process.cwd(),
+      docs: 'docs'
+    });
+
+    verb.options = verb.options || {};
 
     this.files.forEach(function(fp) {
       var files = grunt.file.expand({nonull: true}, fp.src);
@@ -32,16 +42,28 @@ module.exports = function(grunt) {
           return '';
         }
 
-        return grunt.file.read(filepath);
+        verb.options.src = filepath;
+        verb.verbose.inform('reading', verb.options.src);
+
+        return grunt.file.read(verb.options.src);
       }).join(options.sep);
 
-      // Process source with Verb
-      src = verb.process(src, options).content;
+      // Process source templates with Verb
+      var page = verb.process(src);
+
+      // Set the dest
+      verb.options.dest = verb.cwd(options.destBase, fp.dest);
+
+      // Extend the context
+      var context = _.extend({}, verb.options, options, {
+        data: options.data
+      }, page.context);
 
       // Write the destination file.
-      grunt.file.write(fp.dest, src);
+      grunt.file.write(context.dest, page.content);
 
       // Print a success message.
+      verb.verbose.inform('writing', context.dest);
       grunt.verbose.writeln('File "' + fp.dest + '" created.');
     });
   });
@@ -56,11 +78,11 @@ module.exports = function(grunt) {
     grunt.config('verb', {
       readme: {
         options: {
-          verbrc: '.verb*',
-          data: ['docs/*.json']
+          data: ['docs/*.{json,yml}']
         },
         files: [
-          {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'}
+          {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'},
+          {expand: true, cwd: '.', src: ['.verbrc.md'], dest: 'README.md'},
         ]
       }
     });
