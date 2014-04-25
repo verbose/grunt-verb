@@ -24,18 +24,18 @@ module.exports = function(grunt) {
     var options = this.options({
       sep: '\n',
       ext: '.md',
+      data: ['docs/*.{json,yml}'],
       prefixBase: true,
       cwd: process.cwd(),
       destBase: process.cwd(),
       docs: 'docs'
     });
 
-    verb.options = verb.options || {};
+    verb.options = _.extend(verb.options || {}, options);
 
     this.files.forEach(function(fp) {
-      var files = grunt.file.expand({nonull: true}, fp.src);
+      var src = grunt.file.expand(fp.src).map(function(filepath) {
 
-      var src = files.map(function(filepath) {
         // Warn if a source file/pattern was invalid.
         if (!grunt.file.exists(filepath)) {
           grunt.log.error('Source file "' + filepath + '" not found.');
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       // Process source templates with Verb
       var page = verb.process(src);
 
-      // Set the dest
+      // Pass the dest to verb options
       verb.options.dest = verb.cwd(options.destBase, fp.dest);
 
       // Extend the context
@@ -77,9 +77,6 @@ module.exports = function(grunt) {
   if (!grunt.config('verb')) {
     grunt.config('verb', {
       readme: {
-        options: {
-          data: ['docs/*.{json,yml}']
-        },
         files: [
           {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'},
           {expand: true, cwd: '.', src: ['.verbrc.md'], dest: 'README.md'},
