@@ -79,7 +79,7 @@ module.exports = function(grunt) {
       readme: {
         files: [
           {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'},
-          {expand: true, cwd: '.', src: ['.verbrc.md'], dest: 'README.md'},
+          {src: ['.verbrc.md'], dest: 'README.md'},
         ]
       }
     });
