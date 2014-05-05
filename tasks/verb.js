@@ -78,8 +78,8 @@ module.exports = function(grunt) {
     grunt.config('verb', {
       readme: {
         files: [
-          {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'},
           {src: ['.verbrc.md'], dest: 'README.md'},
+          {expand: true, cwd: 'docs', src: ['**/*.tmpl.md'], dest: '.', ext: '.md'},
         ]
       }
     });
