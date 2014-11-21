@@ -43,6 +43,12 @@ Here is an example template for a basic readme:
 {%= license() %}
 ```
 
+Then add the task to your Gruntfile. Please note this requires no configuration as long as your documentation is OK:
+```javascript
+grunt.loadNpmTasks("grunt-verb");
+grunt.registerTask("default", ["verb"]);
+```
+
 ## Contributing
 Find a bug? Have a feature request? Please [create an Issue](https://github.com/assemble/grunt-verb/issues). If you find this project useful please consider "starring" it to show your support!
 
